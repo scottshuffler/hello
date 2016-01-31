@@ -29,51 +29,29 @@ public class helloTest {
         System.setErr(null);
     }
 
-    @org.junit.Test
-    public void testMain() throws Exception {
-
-    }
-
-
     @Test
     public void testCheckCase() throws Exception {
-
+        String test = "Scott";
+        String test1 = hello.checkCase("scOtt");
+        String test2 = hello.checkCase("SCOTT");
+        String test3 = hello.checkCase("sCOTT");
+        assertEquals(test,test1);
+        assertEquals(test,test2);
+        assertEquals(test,test3);
     }
 
     @Test
     public void testBuildHello() throws Exception {
-        try {
-            String result = hello.buildHello("Scott");
-            assertEquals("Hello, Scott!", result);
-        }
-        catch (Exception e) {
-            fail("Error: " + e);
-        }
-        finally {
-            System.out.println("Test complete");
-        }
+        String result = hello.buildHello("Scott");
+        assertEquals("Hello, Scott. My name is Computer. How are you Scott?", result);
     }
+
     @Test
     public void testPrintHello() throws Exception {
-        try {
-            String[] name = new String[1];
-            name[0] = "Scott";
-            hello.main(name);
-            assertEquals("Hello, Scott!", outContent.toString());
-
-            outContent.reset();
-
-            String[] nameTwo = new String[1];
-            nameTwo[0] = "";
-            hello.main(nameTwo);
-            assertEquals("", outContent.toString());
-        }
-        catch (Exception e) {
-            fail("Error: " + e);
-        }
-        finally {
-            System.out.println("Test complete");
-        }
+        String[] name = new String[1];
+        name[0] = "Scott";
+        hello.main(name);
+        assertEquals("Hello, Scott. My name is Computer. How are you Scott?", outContent.toString());
     }
 
 

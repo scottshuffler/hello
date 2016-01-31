@@ -5,13 +5,32 @@ package hello;
  */
 
 public class hello {
-	public static void main(String[] args) {
-		String input = args[0];
-		if (!input.equals("")) {
-			input = checkCase(input);
-			input = buildHello(input);
-			printHello(input);
-		}
+    private static String computerName = "Computer";
+
+    public static void main(String[] args) {
+        String userName;
+        if (args.length == 0) {
+            userName = "Scott";
+            userName = checkCase(userName);
+            userName = buildHello(userName);
+            printHello(userName);
+        }
+        else if (args[0].equals("-me")) {
+            computerName = args[1];
+            userName = args[2];
+            userName = checkCase(userName);
+            computerName = checkCase(computerName);
+            userName = buildHello(userName);
+            printHello(userName);
+        }
+        else {
+            userName = args[0];
+            if (!userName.equals("")) {
+                userName = checkCase(userName);
+                userName = buildHello(userName);
+                printHello(userName);
+            }
+        }
 	}
 
     public static String checkCase(String input) {
@@ -20,11 +39,10 @@ public class hello {
     }
 
 	public static String buildHello(String input) {
-		return "Hello, " + input + "!";
+		return "Hello, " + input + ". My name is " + computerName + ". How are you " + input + "?";
 	}
 
 	public static void printHello(String input) {
-			checkCase(input);
 			System.out.print(input);
 	}
 
