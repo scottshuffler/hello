@@ -39,6 +39,7 @@ public class helloTest {
     public void testCheckCase() throws Exception {
 
     }
+
     @Test
     public void testBuildHello() throws Exception {
         try {
